@@ -5,121 +5,121 @@ let wager = 0
 const players = [
     {
         name: "D'Marcus Williums",
-        teamNumber: 0,
+        team: '',
         emoji: '🏃‍♂️',
         skill: 10
     },
     {
         name: "Tyroil Smoochie-Wallace",
-        teamNumber: 0,
+        team: '',
         emoji: '🤾‍♂️',
         skill: 30
     },
     {
         name: "Jackmerius Tacktheratrix",
-        teamNumber: 0,
+        team: '',
         emoji: '🏇',
         skill: 88
     },
     {
         name: "Javaris Jamar Javarison-Lamar",
-        teamNumber: 0,
+        team: '',
         emoji: '🏌️‍♀️',
         skill: 15
     },
     {
         name: "D'Pez Poopsie",
-        teamNumber: 0,
+        team: '',
         emoji: '🏋️‍♂️',
         skill: 77
     },
     {
         name: "D'Jasper Probincrux III",
-        teamNumber: 0,
+        team: '',
         emoji: '🏌️‍♂️',
         skill: 21
     },
     {
         name: "Leoz Maxwell Jilliumz",
-        teamNumber: 0,
+        team: '',
         emoji: '🤾',
         skill: 5
     },
     {
         name: "Hingle McCringleberry",
-        teamNumber: 0,
+        team: '',
         emoji: '🏂',
         skill: 99
     },
     {
         name: "L'Carpetron Dookmarriot",
-        teamNumber: 0,
+        team: '',
         emoji: '🧘‍♀️',
         skill: 50
     },
     {
         name: "Xmus Jaxon Flaxon-Waxon",
-        teamNumber: 0,
+        team: '',
         emoji: '🚶‍♀️',
         skill: 1
     },
     {
         name: "Saggitariutt Jefferspin",
-        teamNumber: 0,
+        team: '',
         emoji: '🏋️‍♀️',
         skill: 61
     },
     {
         name: "Quatro Quatro",
-        teamNumber: 0,
+        team: '',
         emoji: '🤺',
         skill: 34
     },
     {
         name: "X-Wing @Aliciousness",
-        teamNumber: 0,
+        team: '',
         emoji: '🏄',
         skill: 71
     },
     {
         name: "Bisquiteen Trisket",
-        teamNumber: 0,
+        team: '',
         emoji: '🧜‍♂️',
         skill: 76
     },
     {
         name: "Scoish Velociraptor Maloish",
-        teamNumber: 0,
+        team: '',
         emoji: '🤸',
         skill: 47
     },
     {
         name: "Donkey Teeth",
-        teamNumber: 0,
+        team: '',
         emoji: '⛹️‍♀️',
         skill: 23
     },
     {
         name: "T.J. A.J. R.J. Backslashinfourth V",
-        teamNumber: 0,
+        team: '',
         emoji: '🕴️',
         skill: 58
     },
     {
         name: "Firstname Lastname",
-        teamNumber: 0,
+        team: '',
         emoji: '💃',
         skill: 99
     },
     {
         name: "Dan Smith",
-        teamNumber: 0,
+        team: '',
         emoji: '🧍‍♂️',
         skill: 3
     },
     {
         name: "Tiger",
-        teamNumber: 0,
+        team: '',
         emoji: '🐅',
         skill: 100
     },
@@ -127,19 +127,9 @@ const players = [
 
 
 
-
-
 function assignPlayers() {
-
-    for (let i = 0; i < players.length; i++) {
-        const p = players[i]
-        p.team = 'red'
-
-        if (Math.random() < .5) {
-            p.team = 'blue'
-        }
-    }
-
+    let player = players.length
+    players.forEach(player => player.team = Math.random() > .5 ? 'red' : 'blue')
 
 }
 
@@ -158,15 +148,15 @@ function drawBluePlayers() {
     })
 }
 
-function handleBet(amount) {
+function handleBet() {
 
-    if (amount > bank) {
+    if (wager > bank) {
         console.error('not enough $$$$')
         return
     }
 
-    bank -= amount
-    wager += amount
+    bank -= wager
+    wager += wager
 
     console.log('whats left in the bank?', bank)
     console.log('how much is the wager?', wager)
